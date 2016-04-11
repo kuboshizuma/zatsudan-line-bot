@@ -4,6 +4,10 @@ require 'json'
 require 'httpclient'
 
 class App < Sinatra::Base
+  get '/' do
+    'test'
+  end
+
   post '/linebot/callback' do
     params = JSON.parse(request.body.read)
 
