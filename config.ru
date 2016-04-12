@@ -19,8 +19,7 @@ class App < Sinatra::Base
         content: msg['content']
       }
 
-      http_client = HTTPClient.new
-      http_client.proxy = ENV["FIXIE_URL"]
+      http_client = HTTPClient.new(ENV["FIXIE_URL"])
       endpoint_uri = 'https://trialbot-api.line.me/v1/events'
       content_json = request_content.to_json
       http_client.post_content(endpoint_uri, content_json,
